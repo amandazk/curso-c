@@ -1,4 +1,4 @@
-# Curso Linguagem C
+# Linguagem C
 Aprendendo Linguagem C com exercícios
 
 - [Jogo de Adivinhação][1]

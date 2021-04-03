@@ -8,4 +8,5 @@ int main() {
     printf("------------------------------------\n");
 
     int numerosecreto = 42;
+    // printf("O numero secreto eh o : %d\n", numerosecreto);
 }

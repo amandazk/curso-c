@@ -18,6 +18,14 @@ int main() {
         printf("Você acertou!\n");
     } 
     else {
+        if(chute > numerosecreto) {
+            printf("Seu chute foi maior que o número secreto\n");
+        }
+
+        if(chute < numerosecreto) {
+            printf("Seu chute foi menor que o número secreto\n");
+        }
+
         printf("Você errou!\n");
     }
 }

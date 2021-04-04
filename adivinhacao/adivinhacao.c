@@ -44,11 +44,11 @@ int main() {
 
         tentativas ++;
 
-        double pontosperdidos = abs(chute - numerosecreto) / 2.0;
+        double pontosperdidos = abs(chute - numerosecreto) / (double)2;
         pontos = pontos - pontosperdidos;
     }
 
     printf("Fim de jogo!\n");
     printf("Você acertou em %d tentativas\n", tentativas);
-    printf("Você fez %.2f pontos\n", pontos);
+    printf("Você fez %.1f pontos\n", pontos);
 }

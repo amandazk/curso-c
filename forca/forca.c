@@ -8,6 +8,10 @@ int main() {
 
     sprintf(palavrasecreta, "MELANCIA");
 
-    printf("%s", palavrasecreta); // imprime letra por letra
-    
+    int acertou = 0;
+    int enforcou = 0;
+
+    do {
+        // começar o jogo
+    } while (!acertou && !enforcou);
 }

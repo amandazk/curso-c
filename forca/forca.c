@@ -1,6 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <string.h>
 
 int main() {
 
@@ -9,9 +8,17 @@ int main() {
     sprintf(palavrasecreta, "MELANCIA");
 
     int acertou = 0;
-    int enforcou = 0;
+    int enforcou = 1;
 
     do {
-        // começar o jogo
+        char chute;
+        scanf("%c", &chute);
+
+        for (int i = 0; i < strlen(palavrasecreta); i++) {
+            if (palavrasecreta[i] == chute) {
+                printf("A posição %d tem essa letra\n", i);
+            }
+        }
+
     } while (!acertou && !enforcou);
 }

@@ -2,8 +2,10 @@
 Aprendendo Linguagem C com exercícios
 
 - [Jogo de Adivinhação][1]
+- [Jogo de Forca][2]
  
 [1]: https://github.com/amandazk/curso-c/tree/master/adivinhacao
+[2]: https://github.com/amandazk/curso-c/tree/master/forca
 
 
 ## Como compilar um programa em C (Windows)

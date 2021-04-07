@@ -8,6 +8,16 @@ void abertura() {
     printf("*******************\n\n");
 }
 
+void chuta(char chutes[26, int tentativas]) {
+    
+    char chute;
+    printf("Qual letra? ");
+    scanf(" %c", &chute);
+
+    chutes[tentativas] = chute;
+    tentativas++;
+}
+
 int main() {
 
     char palavrasecreta[20];
@@ -44,12 +54,7 @@ int main() {
         }
         printf("\n");
 
-        char chute;
-        printf("Qual letra? ");
-        scanf(" %c", &chute); // o espaço antes do %c serve para ignorar a tecla ENTER
-
-        chutes[tentativas] = chute;
-        tentativas++;
+        chuta(chutes, tentativas);
 
     } while (!acertou && !enforcou);
 }

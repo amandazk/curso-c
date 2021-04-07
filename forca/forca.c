@@ -8,7 +8,7 @@ void abertura() {
     printf("*******************\n\n");
 }
 
-void chuta(char chutes[26, int tentativas]) {
+void chuta(char chutes[26], int tentativas) {
     
     char chute;
     printf("Qual letra? ");
@@ -55,6 +55,7 @@ int main() {
         printf("\n");
 
         chuta(chutes, tentativas);
+        tentativas++;
 
     } while (!acertou && !enforcou);
 }

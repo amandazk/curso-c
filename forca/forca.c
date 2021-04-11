@@ -5,7 +5,7 @@
 #include "forca.h"
 
 // variáveis globais
-char palavrasecreta[20];
+char palavrasecreta[TAMANHO_PALAVRA];
 char chutes[26];
 int chutesdados = 0;
 
@@ -65,7 +65,7 @@ void AdicionaPalavra () {
 
     if(opcao == 'S') {
         
-        char novapalavra[20];
+        char novapalavra[TAMANHO_PALAVRA];
 
         printf("Qual a nova palavra? ");
         scanf("%s", &novapalavra);
@@ -156,6 +156,12 @@ int main() {
         Chuta();
 
     } while (!Acertou() && !Enforcou());
+
+    if(Acertou()) {
+        printf("Parabéns! Você ganhou!\n\n");
+    } else {
+        printf("Poxa, não foi dessa vez. A palavra era --- %s ---\n\n", palavrasecreta);
+    }
 
     AdicionaPalavra();
 }

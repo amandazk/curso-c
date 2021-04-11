@@ -9,14 +9,14 @@ char palavrasecreta[20];
 char chutes[26];
 int chutesdados = 0;
 
-void abertura() {
+void Abertura() {
     
     printf("*******************\n");
     printf("*  Jogo de Forca  *\n");
     printf("*******************\n\n");
 }
 
-void chuta() {
+void Chuta() {
     
     char chute;
     printf("Qual letra? ");
@@ -26,7 +26,7 @@ void chuta() {
     chutesdados++;
 }
 
-int jachutou(char letra) {
+int JaChutou(char letra) {
 
     int achou = 0; // preciso do achou fora da função tambék
 
@@ -39,11 +39,11 @@ int jachutou(char letra) {
 
     return achou;
 }
-void desenhaforca() {
+void DesenhaForca() {
 
     for(int i = 0; i < strlen(palavrasecreta); i++) {
             
-        int achou = jachutou(palavrasecreta[i]);
+        int achou = JaChutou(palavrasecreta[i]);
 
         if(achou) {
             printf("%c ", palavrasecreta[i]);
@@ -56,7 +56,45 @@ void desenhaforca() {
     printf("\n");
 }
 
-void escolhepalavra() {
+void AdicionaPalavra () {
+
+    char opcao;
+
+    printf("Voce deseja adicionara uma nova palavra ao jogo? S/N\n");
+    scanf(" %c", &opcao);
+
+    if(opcao == 'S') {
+        
+        char novapalavra[20];
+
+        printf("Qual a nova palavra? ");
+        scanf("%s", &novapalavra);
+
+        FILE* f;
+        f = fopen("palavras.txt", "r+"); // r+ é leitura e escrita
+        if(f == 0) {
+            printf("Desculpe, banco de dados não disponível\n\n");
+            exit(1);
+        }
+        
+        // lendo o número de palavras que existem no arquivo
+        int qtd;
+        fscanf(f, "%d", &qtd);
+        qtd++;
+
+        // posicionar no começo do arquivo
+        fseek(f, 0, SEEK_SET);
+        fprintf(f, "%d", qtd);
+
+        // posicionando no final do arquivo
+        fseek(f, 0, SEEK_END); 
+        fprintf(f, "\n%s", novapalavra);
+
+        fclose(f);
+    }
+}
+
+void EscolhePalavra() {
     FILE* f;
 
     f = fopen("palavras.txt", "r"); // lendo o arquivo de palavras
@@ -78,10 +116,10 @@ void escolhepalavra() {
     fclose(f);
 }
 
-int acertou() {
+int Acertou() {
 
     for(int i = 0; i < strlen(palavrasecreta); i++) {
-        if(!jachutou(palavrasecreta[i])) {
+        if(!JaChutou(palavrasecreta[i])) {
             return 0;
         }
     }
@@ -89,7 +127,7 @@ int acertou() {
     return 1;
 }
 
-int enforcou() {
+int Enforcou() {
 
     int erros = 0;
     for(int i = 0; i < chutesdados; i++) {
@@ -109,13 +147,15 @@ int enforcou() {
 
 int main() {
 
-    escolhepalavra();
-    abertura();
+    EscolhePalavra();
+    Abertura();
 
     do {
 
-        desenhaforca();
-        chuta();
+        DesenhaForca();
+        Chuta();
 
-    } while (!acertou() && !enforcou());
+    } while (!Acertou() && !Enforcou());
+
+    AdicionaPalavra();
 }

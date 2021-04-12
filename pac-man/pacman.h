@@ -1,3 +1,2 @@
-void LiberaMapa();
-void LeMapa();
-void AlocaMapa();
+int acabou();
+void move(char direcao);

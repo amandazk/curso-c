@@ -40,7 +40,7 @@ void pilhaInsere(Pilha *p, int x) {
 
 int pilhaRetira(Pilha *p) {
     int aux;
-    if (pilhaCheia == 1) {
+    if (pilhaCheia(p) == 1) {
         printf("Pilha vazia");
     } else { 
         aux = p->Item[p->Topo];
@@ -53,6 +53,15 @@ int pilhaRetira(Pilha *p) {
 int main()
 {
     Pilha *p = (Pilha*)malloc(sizeof(Pilha));
+    pilhaInicia(p);
+
+    pilhaInsere(p, 2);
+    pilhaInsere(p, 3);
+    pilhaInsere(p, 4);
     
-    
+    int aux;
+    aux = pilhaRetira(p);
+    printf("\n Removido: %d \n", aux);
+
+    return 0;
 }
